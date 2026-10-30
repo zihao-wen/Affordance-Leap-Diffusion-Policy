@@ -6,4 +6,5 @@ __pycache__/
 .vscode/
 
 !human_pose_mano.npy
-!leap_hand_qpos.npy!diffusion_policy_best.ckpt
+!leap_hand_qpos.npy
+!diffusion_policy_best.ckpt
