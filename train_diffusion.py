@@ -1,6 +1,6 @@
 """
 Action Diffusion Policy for 16-DoF Leap Hand Manipulation.
-Reference: Chi et al., "Diffusion Policy" (RSS 2023).
+Reference: Chi et al., "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion" (RSS 2023).
 """
 
 import math
