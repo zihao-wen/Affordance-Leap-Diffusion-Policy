@@ -9,3 +9,5 @@ __pycache__/
 !leap_hand_qpos.npy
 !diffusion_policy_best.ckpt
 !sampled_action_traj.npy
+!results/baseline_human_pose_mano.npy
+!results/baseline_joints_3d.npy
