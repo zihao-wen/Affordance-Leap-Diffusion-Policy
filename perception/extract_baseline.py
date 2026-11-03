@@ -130,6 +130,7 @@ def main():
     pred_poses_list = []
     pred_cam_t_list = []
     hand_bboxes_list = []
+    hand_is_right_list = []
     scaled_focal_value = 5000.0
 
     print("[INFO] Executing WiLoR inference (778-vertex skin mesh + 3D trajectory)...")
@@ -150,6 +151,8 @@ def main():
                 is_right_val = 0  # Default to left hand for this sequence
 
             hand_bboxes_list.append(box)
+            hand_is_right_list.append(bool(is_right_val))
+
             boxes_np = np.array([box], dtype=np.float32)
             right_np = np.array([is_right_val], dtype=np.int64)
 
@@ -211,13 +214,22 @@ def main():
         "scaled_focal": scaled_focal_value
     })
 
+    # Statistical sequence-level handedness determination
+    seq_is_right = bool(np.mean(hand_is_right_list) >= 0.5)
+    hand_metadata = {
+        "is_right": seq_is_right,
+        "handedness": "right" if seq_is_right else "left",
+        "bboxes": hand_bboxes_list,
+        "per_frame_is_right": hand_is_right_list
+    }
+
     with open("results/detected_hand_bboxes.json", "w") as f:
-        json.dump(hand_bboxes_list, f, indent=2)
+        json.dump(hand_metadata, f, indent=2)
 
     print("[SUCCESS] Baseline outputs serialized to results/:")
     print("  - results/baseline_joints_3d.npy (Cartesian 3D joint trajectories)")
     print("  - results/baseline_human_pose_mano.npy (Kinematic MANO parameters + 778-vertex mesh)")
-    print("  - results/detected_hand_bboxes.json (Per-frame hand bounding boxes)")
+    print(f"  - results/detected_hand_bboxes.json (Hand metadata, Handedness: {hand_metadata['handedness']})")
 
     # 5. Compute Quantitative Metrics
     instantaneous_errors = compute_pa_mpjpe(baseline_joints, gt_joints_3d)
@@ -238,6 +250,7 @@ def main():
     # 6. Restored Full Summary Dashboard
     print("\n" + "=" * 70)
     print("★ WiLoR Baseline Quantitative Evaluation Summary:")
+    print(f"  - Handedness Autodetected: {hand_metadata['handedness'].upper()} HAND")
     print(f"  - Full Sequence Mean PA-MPJPE: {sequence_mean_pa:.2f} mm")
     print(f"  - Severe Occlusion Segment Mean (Frames 13-29): {high_occlusion_pa:.2f} mm")
     print(f"  - Total Instantaneous Error Points (e_t) Logged: {len(instantaneous_errors)}")
