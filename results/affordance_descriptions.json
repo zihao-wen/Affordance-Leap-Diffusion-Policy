@@ -1,0 +1,265 @@
+{
+  "handedness": "left",
+  "keyframes": [
+    0,
+    10,
+    15,
+    20,
+    29
+  ],
+  "temporal_sharing_policy": "causal_zero_order_hold",
+  "keyframe_descriptions": {
+    "0": {
+      "frame_idx": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table.",
+      "parsed_7_fields": {
+        "hand_caption": "A left hand rests near objects on a table",
+        "object_category": "unknown",
+        "object_shape": "unknown",
+        "object_size": "small",
+        "interaction_type": "unknown",
+        "intention": "undetermined",
+        "grasp_taxonomy": "none"
+      }
+    },
+    "10": {
+      "frame_idx": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp.",
+      "parsed_7_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Small Diameter"
+      }
+    },
+    "15": {
+      "frame_idx": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp.",
+      "parsed_7_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Small Diameter"
+      }
+    },
+    "20": {
+      "frame_idx": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp.",
+      "parsed_7_fields": {
+        "hand_caption": "A left hand grasps a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "grasping",
+        "intention": "to hold the cup",
+        "grasp_taxonomy": "Small Diameter"
+      }
+    },
+    "29": {
+      "frame_idx": 29,
+      "grasp_taxonomy": "Power Disk",
+      "affordance_description": "A left hand holds a small, cylindrical red cup using a Power Disk grasp, intending to drink from it.",
+      "parsed_7_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Power Disk"
+      }
+    }
+  },
+  "per_frame_descriptions": [
+    {
+      "frame_idx": 0,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 1,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 2,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 3,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 4,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 5,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 6,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 7,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 8,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 9,
+      "source_keyframe": 0,
+      "grasp_taxonomy": "none",
+      "affordance_description": "A left hand rests near small objects on a table."
+    },
+    {
+      "frame_idx": 10,
+      "source_keyframe": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 11,
+      "source_keyframe": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 12,
+      "source_keyframe": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 13,
+      "source_keyframe": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 14,
+      "source_keyframe": 10,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 15,
+      "source_keyframe": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 16,
+      "source_keyframe": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 17,
+      "source_keyframe": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 18,
+      "source_keyframe": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 19,
+      "source_keyframe": 15,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand holds a small, cylindrical red cup, intending to drink from it using a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 20,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 21,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 22,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 23,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 24,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 25,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 26,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 27,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 28,
+      "source_keyframe": 20,
+      "grasp_taxonomy": "Small Diameter",
+      "affordance_description": "A left hand grasps a small, cylindrical red cup intended to hold it, classified as a Small Diameter grasp."
+    },
+    {
+      "frame_idx": 29,
+      "source_keyframe": 29,
+      "grasp_taxonomy": "Power Disk",
+      "affordance_description": "A left hand holds a small, cylindrical red cup using a Power Disk grasp, intending to drink from it."
+    }
+  ]
+}

@@ -7,67 +7,83 @@
     "object_shape": "cylindrical",
     "object_size": "small",
     "interaction_type": "holding",
-    "intention": "to drink from the cup"
+    "intention": "to drink from the cup",
+    "grasp_taxonomy": "Small Diameter"
   },
   "all_evaluated_frames": {
     "0": {
       "frame_idx": 0,
-      "raw_response": "1. hand_caption: A left hand rests near objects on a table.\n2. object_category: unknown\n3. object_shape: unknown\n4. object_size: small\n5. interaction_type: unknown\n6. intention: undetermined",
+      "raw_vlm_response": "1. hand_caption: A left hand rests near objects on a table.\n2. object_category: unknown\n3. object_shape: unknown\n4. object_size: small\n5. interaction_type: unknown\n6. intention: undetermined",
+      "raw_grasp_response": "grasp_taxonomy: none\nreasoning: The left hand is not in contact with any object, as indicated by its position away from the other objects on the table.",
+      "grasp_reasoning": "The left hand is not in contact with any object, as indicated by its position away from the other objects on the table.",
       "parsed_fields": {
         "hand_caption": "A left hand rests near objects on a table",
         "object_category": "unknown",
         "object_shape": "unknown",
         "object_size": "small",
         "interaction_type": "unknown",
-        "intention": "undetermined"
+        "intention": "undetermined",
+        "grasp_taxonomy": "none"
       }
     },
     "10": {
       "frame_idx": 10,
-      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_vlm_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_grasp_response": "grasp_taxonomy: Small Diameter\nreasoning: The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
+      "grasp_reasoning": "The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
       "parsed_fields": {
         "hand_caption": "A left hand holds a red cup",
         "object_category": "cup",
         "object_shape": "cylindrical",
         "object_size": "small",
         "interaction_type": "holding",
-        "intention": "to drink from the cup"
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Small Diameter"
       }
     },
     "15": {
       "frame_idx": 15,
-      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_vlm_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_grasp_response": "grasp_taxonomy: Small Diameter\nreasoning: The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
+      "grasp_reasoning": "The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
       "parsed_fields": {
         "hand_caption": "A left hand holds a red cup",
         "object_category": "cup",
         "object_shape": "cylindrical",
         "object_size": "small",
         "interaction_type": "holding",
-        "intention": "to drink from the cup"
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Small Diameter"
       }
     },
     "20": {
       "frame_idx": 20,
-      "raw_response": "1. hand_caption: A left hand grasps a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: grasping\n6. intention: to hold the cup.",
+      "raw_vlm_response": "1. hand_caption: A left hand grasps a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: grasping\n6. intention: to hold the cup.",
+      "raw_grasp_response": "grasp_taxonomy: Small Diameter\nreasoning: The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
+      "grasp_reasoning": "The thumb and fingers are wrapped around the small cylindrical cup, indicating a small diameter grasp.",
       "parsed_fields": {
         "hand_caption": "A left hand grasps a red cup",
         "object_category": "cup",
         "object_shape": "cylindrical",
         "object_size": "small",
         "interaction_type": "grasping",
-        "intention": "to hold the cup"
+        "intention": "to hold the cup",
+        "grasp_taxonomy": "Small Diameter"
       }
     },
     "29": {
       "frame_idx": 29,
-      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_vlm_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "raw_grasp_response": "grasp_taxonomy: Power Disk\nreasoning: The thumb is not in contact with the object, and the fingers are wrapped around the small cylindrical cup, indicating a power disk grasp.",
+      "grasp_reasoning": "The thumb is not in contact with the object, and the fingers are wrapped around the small cylindrical cup, indicating a power disk grasp.",
       "parsed_fields": {
         "hand_caption": "A left hand holds a red cup",
         "object_category": "cup",
         "object_shape": "cylindrical",
         "object_size": "small",
         "interaction_type": "holding",
-        "intention": "to drink from the cup"
+        "intention": "to drink from the cup",
+        "grasp_taxonomy": "Power Disk"
       }
     }
   }
