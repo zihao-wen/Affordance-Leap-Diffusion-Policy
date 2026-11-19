@@ -1,0 +1,74 @@
+{
+  "handedness": "left",
+  "primary_interaction_frame": 15,
+  "primary_affordance_fields": {
+    "hand_caption": "A left hand holds a red cup",
+    "object_category": "cup",
+    "object_shape": "cylindrical",
+    "object_size": "small",
+    "interaction_type": "holding",
+    "intention": "to drink from the cup"
+  },
+  "all_evaluated_frames": {
+    "0": {
+      "frame_idx": 0,
+      "raw_response": "1. hand_caption: A left hand rests near objects on a table.\n2. object_category: unknown\n3. object_shape: unknown\n4. object_size: small\n5. interaction_type: unknown\n6. intention: undetermined",
+      "parsed_fields": {
+        "hand_caption": "A left hand rests near objects on a table",
+        "object_category": "unknown",
+        "object_shape": "unknown",
+        "object_size": "small",
+        "interaction_type": "unknown",
+        "intention": "undetermined"
+      }
+    },
+    "10": {
+      "frame_idx": 10,
+      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "parsed_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup"
+      }
+    },
+    "15": {
+      "frame_idx": 15,
+      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "parsed_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup"
+      }
+    },
+    "20": {
+      "frame_idx": 20,
+      "raw_response": "1. hand_caption: A left hand grasps a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: grasping\n6. intention: to hold the cup.",
+      "parsed_fields": {
+        "hand_caption": "A left hand grasps a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "grasping",
+        "intention": "to hold the cup"
+      }
+    },
+    "29": {
+      "frame_idx": 29,
+      "raw_response": "1. hand_caption: A left hand holds a red cup.\n2. object_category: cup\n3. object_shape: cylindrical\n4. object_size: small\n5. interaction_type: holding\n6. intention: to drink from the cup",
+      "parsed_fields": {
+        "hand_caption": "A left hand holds a red cup",
+        "object_category": "cup",
+        "object_shape": "cylindrical",
+        "object_size": "small",
+        "interaction_type": "holding",
+        "intention": "to drink from the cup"
+      }
+    }
+  }
+}

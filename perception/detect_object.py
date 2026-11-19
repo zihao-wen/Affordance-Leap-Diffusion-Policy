@@ -47,8 +47,7 @@ def main():
         elif last_valid_box is not None:
             detected_mug_box = last_valid_box
         else:
-            detected_mug_box = [285.0, 275.0, 375.0, 415.0]
-            last_valid_box = detected_mug_box
+            detected_mug_box = None
 
         object_bboxes.append(detected_mug_box)
 
