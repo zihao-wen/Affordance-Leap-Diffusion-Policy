@@ -2,6 +2,7 @@ import os
 import sys
 import glob
 import json
+from functools import partial
 from unittest.mock import MagicMock
 
 # Headless rendering protection & HuggingFace mirror cache
@@ -14,14 +15,15 @@ sys.modules["pyrender"] = MagicMock()
 import cv2
 import numpy as np
 import torch
+import torch.nn as nn
 from transformers import AutoTokenizer, DistilBertModel
 
-# Register WiLoR package directory
+# Reuse HaMeR-compatible ViTPose building blocks & ViTDetDataset from local WiLoR repo
 WILOR_ROOT = os.path.abspath("./WiLoR")
 if WILOR_ROOT not in sys.path:
     sys.path.append(WILOR_ROOT)
 
-from wilor.models import load_wilor
+from wilor.models.backbones.vit import PatchEmbed, Block
 from wilor.datasets.vitdet_dataset import ViTDetDataset
 
 
@@ -33,6 +35,46 @@ def recursive_to(x, device):
     if isinstance(x, list):
         return [recursive_to(v, device) for v in x]
     return x
+
+
+class HaMeRViTBackbone(nn.Module):
+    """
+    Pure HaMeR ViT-Huge/16 backbone matching the exact 389 `backbone.*` tensors in hamer.ckpt.
+    Input:  (B, 3, 256, 192)
+    Output: (B, 192, 1280) localized spatial patch tokens (16 x 12 grid)
+    """
+
+    def __init__(self):
+        super().__init__()
+        norm_layer = partial(nn.LayerNorm, eps=1e-6)
+        self.patch_embed = PatchEmbed(
+            img_size=(256, 192),
+            patch_size=16,
+            in_chans=3,
+            embed_dim=1280,
+            ratio=1,
+        )
+        self.pos_embed = nn.Parameter(torch.zeros(1, 193, 1280))
+        self.blocks = nn.ModuleList([
+            Block(
+                dim=1280,
+                num_heads=16,
+                mlp_ratio=4.0,
+                qkv_bias=True,
+                norm_layer=norm_layer,
+            )
+            for _ in range(32)
+        ])
+        self.last_norm = norm_layer(1280)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x, (hp, wp) = self.patch_embed(x)
+        assert hp == 16 and wp == 12, f"Expected 16x12 patch grid, got ({hp}, {wp})"
+        x = x + self.pos_embed[:, 1:] + self.pos_embed[:, :1]
+        for blk in self.blocks:
+            x = blk(x)
+        x = self.last_norm(x)
+        return x
 
 
 def load_distilbert(model_id: str, device: torch.device):
@@ -80,7 +122,43 @@ def extract_text_tokens(descriptions: list, device: torch.device, max_length: in
     assert mask_np.shape == (len(descriptions), max_length), f"Unexpected attention_mask shape: {mask_np.shape}"
     assert np.all(np.isfinite(text_tokens)), "Non-finite values detected in text_tokens!"
 
+    del text_encoder
+    if device.type == "cuda":
+        torch.cuda.empty_cache()
+
     return text_tokens, mask_np
+
+
+def load_hamer_vit_backbone(ckpt_path: str, device: torch.device) -> nn.Module:
+    """Strictly load all 389 frozen HaMeR ViT-Huge/16 backbone tensors."""
+    assert os.path.exists(ckpt_path), f"Missing HaMeR checkpoint: {ckpt_path}"
+    print(f"[INFO] Loading frozen HaMeR ViT-Huge/16 backbone from: {ckpt_path}")
+
+    ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+    sd = ckpt["state_dict"] if isinstance(ckpt, dict) and "state_dict" in ckpt else ckpt
+    backbone_sd = {
+        k[len("backbone."):]: v
+        for k, v in sd.items()
+        if k.startswith("backbone.")
+    }
+    assert len(backbone_sd) == 389, f"Expected 389 HaMeR backbone tensors, got {len(backbone_sd)}"
+
+    vit_backbone = HaMeRViTBackbone()
+    vit_backbone.load_state_dict(backbone_sd, strict=True)
+    vit_backbone = vit_backbone.to(device).eval()
+    vit_backbone.requires_grad_(False)
+    print("[INFO] Successfully verified strict=True loading of all 389 HaMeR ViT tensors.")
+    return vit_backbone
+
+
+def load_preprocess_cfg(cfg_path: str):
+    assert os.path.exists(cfg_path), f"Missing ViTDet preprocess config: {cfg_path}"
+    try:
+        from wilor.configs import get_config
+        return get_config(cfg_path)
+    except Exception:
+        from omegaconf import OmegaConf
+        return OmegaConf.load(cfg_path)
 
 
 def extract_image_tokens(
@@ -90,21 +168,17 @@ def extract_image_tokens(
     device: torch.device
 ) -> np.ndarray:
     """
-    Extract 192 localized spatial visual tokens per frame using the frozen WiLoR ViT backbone.
+    Extract 192 localized spatial visual tokens per frame using the frozen HaMeR ViT-Huge/16 backbone.
       Input crop from ViTDetDataset: (1, 3, 256, 256) -> sliced to (1, 3, 256, 192)
-      Backbone vit_out:              (1, 1280, 16, 12) -> flattened to (192, 1280)
+      HaMeR ViT output:              (1, 192, 1280)
       Returns:
         image_tokens: (N, 192, 1280) float32
     """
-    checkpoint_path = os.path.join(WILOR_ROOT, "pretrained_models/wilor_final.ckpt")
+    hamer_ckpt_path = "weights/hamer/hamer.ckpt"
     cfg_path = os.path.join(WILOR_ROOT, "pretrained_models/model_config.yaml")
-    assert os.path.exists(checkpoint_path), f"Missing WiLoR checkpoint: {checkpoint_path}"
-    assert os.path.exists(cfg_path), f"Missing WiLoR config: {cfg_path}"
 
-    print(f"[INFO] Loading frozen WiLoR ViT backbone from: {checkpoint_path}")
-    wilor_model, model_cfg = load_wilor(cfg_path=cfg_path, checkpoint_path=checkpoint_path)
-    wilor_model = wilor_model.to(device).eval()
-    wilor_model.requires_grad_(False)
+    model_cfg = load_preprocess_cfg(cfg_path)
+    hamer_vit = load_hamer_vit_backbone(hamer_ckpt_path, device)
 
     image_tokens_list = []
 
@@ -130,18 +204,13 @@ def extract_image_tokens(
                 f"Unexpected ViTDetDataset image shape at frame {t}: {tuple(x.shape)}"
             )
 
-            # Match WiLoR native backbone aspect ratio: 256 x 192 -> 16 x 12 = 192 patch tokens
-            _, _, _, vit_out = wilor_model.backbone(x[:, :, :, 32:-32])
-            assert vit_out.ndim == 4 and vit_out.shape[2] * vit_out.shape[3] == 192, (
-                f"Unexpected vit_out shape at frame {t}: {tuple(vit_out.shape)}"
-            )
-
-            # (1, 1280, 16, 12) -> (1, 192, 1280) -> (192, 1280)
-            tokens_t = vit_out.flatten(2).transpose(1, 2)[0].detach().cpu().numpy().astype(np.float32)
+            # Match HaMeR native backbone aspect ratio: 256 x 192 -> 16 x 12 = 192 patch tokens
+            tokens_t = hamer_vit(x[:, :, :, 32:-32])[0].detach().cpu().numpy().astype(np.float32)
+            assert tokens_t.shape == (192, 1280), f"Unexpected token shape at frame {t}: {tokens_t.shape}"
             image_tokens_list.append(tokens_t)
 
             if (t + 1) % 10 == 0 or t == len(frame_paths) - 1:
-                print(f"  --> Extracted ViT tokens [{t + 1:02d}/{len(frame_paths):02d}] | shape={tokens_t.shape}")
+                print(f"  --> Extracted HaMeR ViT tokens [{t + 1:02d}/{len(frame_paths):02d}] | shape={tokens_t.shape}")
 
     image_tokens = np.stack(image_tokens_list, axis=0)
     assert np.all(np.isfinite(image_tokens)), "Non-finite values detected in image_tokens!"
@@ -150,7 +219,7 @@ def extract_image_tokens(
 
 def main():
     print("=" * 70)
-    print("[Module 4] Multimodal Condition Feature Extraction (DistilBERT + ViT)")
+    print("[Module 4] Multimodal Condition Feature Extraction (DistilBERT + HaMeR ViT)")
     print("=" * 70)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -172,7 +241,10 @@ def main():
         hand_data = json.load(f)
     if isinstance(hand_data, dict):
         hand_bboxes = hand_data["bboxes"]
-        raw_right = hand_data.get("is_right_per_frame", hand_data.get("is_right", None))
+        raw_right = hand_data.get(
+            "per_frame_is_right",
+            hand_data.get("is_right_per_frame", hand_data.get("is_right", None))
+        )
         if isinstance(raw_right, list):
             is_right_flags = [bool(v) for v in raw_right]
         elif raw_right is not None:
@@ -208,7 +280,7 @@ def main():
         active_len = int(text_attention_mask[kf].sum())
         print(f"  --> Keyframe {kf:02d} | Active text tokens: {active_len:2d}/64 | Text: {descriptions[kf]}")
 
-    # 3. Extract Frozen Image Tokens (c_I: 192 x 1280)
+    # 3. Extract Frozen HaMeR ViT Image Tokens (c_I: 192 x 1280)
     image_tokens = extract_image_tokens(frame_paths, hand_bboxes, is_right_flags, device=device)
 
     # 4. Save Unified Multimodal Condition Cache
@@ -218,7 +290,8 @@ def main():
         out_path,
         text_tokens=text_tokens,
         text_attention_mask=text_attention_mask,
-        image_tokens=image_tokens
+        image_tokens=image_tokens,
+        vision_encoder=np.array("hamer_vit_huge_16"),
     )
     file_mb = os.path.getsize(out_path) / (1024 * 1024)
 
@@ -226,7 +299,7 @@ def main():
     print(f"★ Condition Features Saved: {out_path} ({file_mb:.2f} MB)")
     print(f"  - text_tokens (c_D):         {text_tokens.shape} | {text_tokens.dtype}")
     print(f"  - text_attention_mask:       {text_attention_mask.shape} | {text_attention_mask.dtype}")
-    print(f"  - image_tokens (c_I):        {image_tokens.shape} | {image_tokens.dtype}")
+    print(f"  - image_tokens (c_I):        {image_tokens.shape} | {image_tokens.dtype} (HaMeR ViT-Huge/16)")
     print("=" * 70 + "\n")
 
 
