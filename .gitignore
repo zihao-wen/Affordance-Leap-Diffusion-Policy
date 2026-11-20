@@ -11,3 +11,5 @@ __pycache__/
 !sampled_action_traj.npy
 !results/baseline_human_pose_mano.npy
 !results/baseline_joints_3d.npy
+!results/joint_visibility_mask.npy
+!results/baseline_joints_2d.npy

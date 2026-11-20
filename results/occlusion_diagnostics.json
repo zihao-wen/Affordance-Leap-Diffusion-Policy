@@ -1,0 +1,1210 @@
+{
+  "num_frames": 30,
+  "num_joints": 21,
+  "summary": {
+    "avg_occluded_joints": 5.8,
+    "avg_self_occluded_joints": 3.83,
+    "avg_object_occluded_joints": 2.0,
+    "occlusion_level_distribution": {
+      "Low": 12,
+      "Medium": 18,
+      "High": 0
+    }
+  },
+  "per_frame": [
+    {
+      "frame_idx": 0,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        16,
+        19,
+        20
+      ],
+      "object_occluded_joints": [],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        0,
+        1,
+        3,
+        3
+      ],
+      "sam2_mask_area_px": 6300
+    },
+    {
+      "frame_idx": 1,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        16,
+        19
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1
+      ],
+      "sam2_mask_area_px": 6417
+    },
+    {
+      "frame_idx": 2,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        16,
+        18
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        0,
+        5,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 6586
+    },
+    {
+      "frame_idx": 3,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        16
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        5,
+        0,
+        1,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 5347
+    },
+    {
+      "frame_idx": 4,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        16
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        0,
+        0,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4516
+    },
+    {
+      "frame_idx": 5,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4696
+    },
+    {
+      "frame_idx": 6,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        0,
+        4,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4421
+    },
+    {
+      "frame_idx": 7,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4018
+    },
+    {
+      "frame_idx": 8,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        12,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3815
+    },
+    {
+      "frame_idx": 9,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        12,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        5,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3853
+    },
+    {
+      "frame_idx": 10,
+      "num_visible": 13,
+      "num_occluded": 8,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        11,
+        12,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        1,
+        3,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3766
+    },
+    {
+      "frame_idx": 11,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3842
+    },
+    {
+      "frame_idx": 12,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3701
+    },
+    {
+      "frame_idx": 13,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3598
+    },
+    {
+      "frame_idx": 14,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3566
+    },
+    {
+      "frame_idx": 15,
+      "num_visible": 17,
+      "num_occluded": 4,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3521
+    },
+    {
+      "frame_idx": 16,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3589
+    },
+    {
+      "frame_idx": 17,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3577
+    },
+    {
+      "frame_idx": 18,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3762
+    },
+    {
+      "frame_idx": 19,
+      "num_visible": 16,
+      "num_occluded": 5,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 3950
+    },
+    {
+      "frame_idx": 20,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4055
+    },
+    {
+      "frame_idx": 21,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4129
+    },
+    {
+      "frame_idx": 22,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4183
+    },
+    {
+      "frame_idx": 23,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        11,
+        14,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4264
+    },
+    {
+      "frame_idx": 24,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        11,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4340
+    },
+    {
+      "frame_idx": 25,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4491
+    },
+    {
+      "frame_idx": 26,
+      "num_visible": 15,
+      "num_occluded": 6,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4675
+    },
+    {
+      "frame_idx": 27,
+      "num_visible": 17,
+      "num_occluded": 4,
+      "occlusion_level": "Low",
+      "self_occluded_joints": [
+        10,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        19
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        1,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4670
+    },
+    {
+      "frame_idx": 28,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        14,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        8,
+        19,
+        20
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        3,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4657
+    },
+    {
+      "frame_idx": 29,
+      "num_visible": 14,
+      "num_occluded": 7,
+      "occlusion_level": "Medium",
+      "self_occluded_joints": [
+        10,
+        15,
+        18
+      ],
+      "object_occluded_joints": [
+        0,
+        1,
+        17,
+        18,
+        19
+      ],
+      "ray_hit_counts": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        1,
+        1,
+        3,
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "sam2_mask_area_px": 4048
+    }
+  ]
+}
