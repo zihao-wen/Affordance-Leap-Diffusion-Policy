@@ -13,3 +13,6 @@ __pycache__/
 !results/baseline_joints_3d.npy
 !results/joint_visibility_mask.npy
 !results/baseline_joints_2d.npy
+!results/ours_human_pose_mano.npy
+!results/ours_joints_3d.npy
+!results/ours_joints_2d.npy
